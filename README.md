@@ -1,9 +1,10 @@
 # tequ-bee-nest-heater
 
-Add Description here
-
+This is repository of bee nest heater prototype developed in Arctic Beekeeping project. Prototype is developed for Pycom WiPy 3.0 development board and each prototype can control 12 V heating of single bee nest. Heating plate is equipped with 2 x 10 W @12 VDC heating elements, thermal guard and temperature sensor for thermostat control. Each prototype uses WLAN to connect to internet. Prototype connects to Tequ´s Watson IoT Platform via MQTT and sensor data is delivered to cloud in real-time. Each unit is also remote controllable via MQTT connection. It is possible to connect three Ruuvitag sensors to each unit. Ruuvitag data is collected and forwarded to Watson IoT.
 
 ## Hardware and connections
+
+List of the hardware used in prototype
 
 | Hardware               | Model         | Link          |
 | -------------          |:-------------:| :-------------:| 
@@ -15,7 +16,7 @@ Add Description here
 | Temperature sensor     | DS18B20       | <a href="https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf">Data sheet</a>|
 | Overheat protection    | 80-OHD5R-40B  | <a href="https://content.kemet.com/datasheets/KEM_SE0202_OHD.pdf">Data sheet</a>|
 
-Connections
+Connections table
 
 | Device                 | PIN           | Device         | PIN            |
 | -------------          |:-------------:| :-------------:| :-------------:| 
@@ -64,6 +65,25 @@ git clone https://github.com/Lapland-UAS-Tequ/tequ-bee-nest-heater.git
   "mqtt_config_topic":"iot-2/evt/config/fmt/json"
 }
 ```
+ssid = SSID of local Wifi access point
+password = wifi password
+ruuvitags = list of ruuvitag sensors which data should be collected and forwarded to Watson IoT (max 3)
+setpoint = Target temperature for thermostat control
+hysteresis = allowed fluctuation of temperature during control
+hysteresis_low_offset = offset for more precise control of lower level hysteresis 
+hysteresis_high_offset = offset for more precise control of high level hysteresis 
+ruuvitag_timeout = seconds how long to listen incoming ruuvitag broadcasts
+control_parameter_key = t (do not change, for future purposes)
+control_parameter_group = 1 (do not change, for future purposes)
+mqtt_user = user name for MQTT  
+mqtt_authtoken = auth token for MQTT
+mqtt_port = MQTT server port
+mqtt_url = MQTT server url
+mqtt_device_id = automatically detected from Pycom board, must match registered device in MQTT server
+mqtt_device_type = registered device type 
+mqtt_data_topic = topic to send data events (sensor data)
+mqtt_error_topic = topic to send error messages
+mqtt_config_topic = topic to send device config
 
 ### 3. Install development environment
 
@@ -98,7 +118,13 @@ Add generated token to config.json <MQTT AUTH TOKEN>
 
 https://docs.pycom.io/updatefirmware/
 
-### 8. Upload project to Wipy and test its working
- 
-### 9. Start developing!
+### 8. Build connections
+  
+### 9. Upload project to Wipy and test its working
+   
+### 10. Start developing!
+  
+  
+## MQTT commands
+
  
