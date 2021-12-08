@@ -138,3 +138,6 @@ Unit regularly checks following MQTT topics for incoming commands.
 | iot-2/cmd/control_mode/fmt/json         | Change control mode                              |  0 or 1  | 
 | iot-2/cmd/softreboot/fmt/json           | Reset device                                     |  {}      | 
 | iot-2/cmd/deepsleep/fmt/json            | Activate deepsleep for 30 seconds                |  {}      | 
+  
+Example MQTT control & monitoring application is available at https://tequ.dy.fi/#!/6 & https://tequ.dy.fi/red
+  
