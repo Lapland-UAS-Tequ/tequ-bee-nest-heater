@@ -20,15 +20,17 @@ Connections
 | Device                 | PIN           | Device         | PIN            |
 | -------------          |:-------------:| :-------------:| :-------------:| 
 | WiPy 3.0               | Vin           |  DC/DC         | Vout           |
-| Power                  |               |                |                |
-| Heater                 |               |                |                |
-| DC/DC 4.5 -24 => 5 VDC |            |                |                |
-| Heater control         |               |                |                |
-| Temperature sensor     |        |                |                |
-| Overheat protection    |   |                |                |
+| WiPy 3.0               | GND           |  POWER         | GND            |
+| WiPy 3.0               | P9            |  DS18B20       | Data           |
+| WiPy 3.0               | P10           |  DS18B20       | 5V             |
+| WiPy 3.0               | P11           |  80-OHD5R-40B  | INPUT          |
+| WiPy 3.0               | P12           |  COM-12959     | GATE           |
+| 80-OHD5R-40B           | OUTPUT        |  COM-12959     | GATE           |
+| COM-12959              | DRAIN         |  HEATER        | GND            |
+| COM-12959              | SOURCE        |  POWER         | GND            |
+| HEATER                 | 12 VDC        |  POWER         | 12 VDC         |
+| DCDC                   | Vin           |  POWER         | 12 VDC         |
 
-
- 
 ## Development
 
 ### 1. Clone this repository
