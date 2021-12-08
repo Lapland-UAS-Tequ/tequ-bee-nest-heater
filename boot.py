@@ -78,7 +78,7 @@ setBootCountToNVRAM(bootCount)
 start = start + 1
 setToNVRAM("error",start)
 
-if start >= 3:
+if start >= 2:
     setToNVRAM("error",0)
     machine.deepsleep(5000)
 
