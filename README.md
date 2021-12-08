@@ -2,8 +2,7 @@
 
 This is repository of bee nest heater prototype developed in Arctic Beekeeping project. Prototype is developed for Pycom WiPy 3.0 development board and each prototype can control 12 V heating of single bee nest. Heating plate is equipped with 2 x 10 W @12 VDC heating elements, thermal guard and temperature sensor for thermostat control. Each prototype uses WLAN to connect to internet. Prototype connects to Tequ´s Watson IoT Platform via MQTT and sensor data is delivered to cloud in real-time. Each unit is also remote controllable via MQTT connection. It is possible to connect three Ruuvitag sensors to each unit. Ruuvitag data is collected and forwarded to Watson IoT.
 
-## Hardware and connections
-
+## Hardware 
 List of the hardware used in prototype
 
 | Hardware               | Model         | Link          |
@@ -16,8 +15,8 @@ List of the hardware used in prototype
 | Temperature sensor     | DS18B20       | <a href="https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf">Data sheet</a>|
 | Overheat protection    | 80-OHD5R-40B  | <a href="https://content.kemet.com/datasheets/KEM_SE0202_OHD.pdf">Data sheet</a>|
 
-Connections table
-
+## Connections 
+Connections of the hardware used in prototype.
 | Device                 | PIN           | Device         | PIN            |
 | -------------          |:-------------:| :-------------:| :-------------:| 
 | WiPy 3.0               | Vin           |  DC/DC         | Vout           |
@@ -33,7 +32,6 @@ Connections table
 | DCDC                   | Vin           |  POWER         | 12 VDC         |
 
 ## Remote control via MQTT commands and topics
-
 Unit regularly checks following MQTT topics for incoming commands.
   
 | TOPIC / COMMAND                         | Purpose                                          | Example payload   | 
