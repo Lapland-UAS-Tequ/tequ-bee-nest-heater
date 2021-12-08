@@ -40,8 +40,8 @@ class config:
         # original values
         log("Falling back to default config...")
         value = {
-          "ssid": "beeiot",
-          "password": "beeiot",
+          "ssid": "eyesonhives",
+          "password": "beewatch",
           "ruuvitags": ["ed:08:70:12:55:9d","f8:28:d4:94:6d:22", "f8:28:d4:94:6d:22"],
           "setpoint": 30,
           "hysteresis": 0.25,
