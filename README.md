@@ -5,17 +5,27 @@ Add Description here
 
 ## Hardware and connections
 
-| Hardware         | Model         | Link |
-| -------------    |:-------------:| :-------------:| 
-| Board               | WiPy 3.0      | |
-| Power         | 12 VDC 2A     | |
-| Heater        | 12 V 10 W     | |
-| DC/DC         | 12 V to 5 VDC | |
-| Heater control| 2.33.0        | |
-| Temperature sensor |  |  |
-| Overheat protection | sensor |  |  |
+| Hardware               | Model         | Link          |
+| -------------          |:-------------:| :-------------:| 
+| Board                  | WiPy 3.0      | <a href="https://docs.pycom.io/datasheets/development/wipy3/">Link</a>|
+| Power                  | 12 VDC 2A     | |
+| Heater                 | 12 V 10 W     | <a href="https://www.partco.fi/fi/mekaniikka/kotelointi/kotelotarvikkeet/23244-lk12v-12w.html">Link</a>|
+| DC/DC 4.5 -24 => 5 VDC | MEZD71202A-G  | <a href="https://www.mouser.fi/datasheet/2/277/mEZD71202A-1384003.pdf">Data sheet</a>|
+| Heater control         | COM-12959     | <a href="https://www.sparkfun.com/products/12959">Link</a>|
+| Temperature sensor     | DS18B20       | <a href="https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf">Data sheet</a>|
+| Overheat protection    | 80-OHD5R-40B  | <a href="https://content.kemet.com/datasheets/KEM_SE0202_OHD.pdf">Data sheet</a>|
 
+Connections
 
+| Device                 | PIN           | Device         | PIN            |
+| -------------          |:-------------:| :-------------:| :-------------:| 
+| WiPy 3.0               | Vin           |  DC/DC         | Vout           |
+| Power                  |               |                |                |
+| Heater                 |               |                |                |
+| DC/DC 4.5 -24 => 5 VDC |            |                |                |
+| Heater control         |               |                |                |
+| Temperature sensor     |        |                |                |
+| Overheat protection    |   |                |                |
 
 
  
