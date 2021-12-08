@@ -38,10 +38,10 @@ git clone https://github.com/Lapland-UAS-Tequ/tequ-bee-nest-heater.git
 
 https://docs.pycom.io/gettingstarted/software/atom/
 
+### 4 Open folder cloned from Git
 
-### 4. Find out WiPy board unique ID 
+### 5. Find out WiPy board unique ID 
 
-- Open Atom
 - Connect WiPy with USB-cable
 - Open terminal 
 - Run following code
@@ -53,7 +53,7 @@ machine.unique_id()
 
 Remove ':' from ID and save it.
 
-### 5. Register device to Tequ´s IBM Cloud Watson IoT Platform
+### 6. Register device to Tequ´s IBM Cloud Watson IoT Platform
 
 https://i5u4t3.internetofthings.ibmcloud.com/dashboard/
 
@@ -63,14 +63,11 @@ mqtt_authtoken = generate randomly
 
 Add generated token to config.json <MQTT AUTH TOKEN>
  
-### 6. Update firmware
+### 7. Update WiPy firmware
 
+https://docs.pycom.io/updatefirmware/
 
+### 8. Upload project to Wipy and test its working
  
+### 9. Start developing!
  
-
-
-
-
-
-
