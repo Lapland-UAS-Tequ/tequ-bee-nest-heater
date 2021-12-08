@@ -89,7 +89,7 @@ git clone https://github.com/Lapland-UAS-Tequ/tequ-bee-nest-heater.git
 
 https://docs.pycom.io/gettingstarted/software/atom/
 
-### 4 Open folder cloned from Git
+### 4 Open folder cloned from Git in development environment
 
 ### 5. Find out WiPy board unique ID 
 
@@ -125,6 +125,16 @@ https://docs.pycom.io/updatefirmware/
 ### 10. Start developing!
   
   
-## MQTT commands
+## MQTT commands and topics
 
- 
+Unit regularly checks following MQTT topics for incoming commands.
+  
+| TOPIC / COMMAND                         | Purpose                                          | Example payload   | 
+| -------------                           |:-------------:                                   | :-------------:   | 
+| iot-2/cmd/configure/fmt/json            | Change one or multiple config value              |  {"setpoint":25, "hysteresis":1} | 
+| iot-2/cmd/relay_control/fmt/json        | Set                                              |  0 or 1  | 
+| iot-2/cmd/send_config/fmt/json          | Request current config from unit                 |  {}      | 
+| iot-2/cmd/default_config/fmt/json       | Reverts back to default config                   |  {}      | 
+| iot-2/cmd/control_mode/fmt/json         | Change control mode                              |  0 or 1  | 
+| iot-2/cmd/softreboot/fmt/json           | Reset device                                     |  {}      | 
+| iot-2/cmd/deepsleep/fmt/json            | Activate deepsleep for 30 seconds                |  {}      | 
