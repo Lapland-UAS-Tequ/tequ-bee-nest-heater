@@ -32,6 +32,22 @@ Connections table
 | HEATER                 | 12 VDC        |  POWER         | 12 VDC         |
 | DCDC                   | Vin           |  POWER         | 12 VDC         |
 
+## Remote control via MQTT commands and topics
+
+Unit regularly checks following MQTT topics for incoming commands.
+  
+| TOPIC / COMMAND                         | Purpose                                          | Example payload   | 
+| -------------                           |:-------------:                                   | :-------------:   | 
+| iot-2/cmd/configure/fmt/json            | Change one or multiple config value              |  {"setpoint":25, "hysteresis":1} | 
+| iot-2/cmd/relay_control/fmt/json        | Set                                              |  0 or 1  | 
+| iot-2/cmd/send_config/fmt/json          | Request current config from unit                 |  {}      | 
+| iot-2/cmd/default_config/fmt/json       | Reverts back to default config                   |  {}      | 
+| iot-2/cmd/control_mode/fmt/json         | Change control mode                              |  0 or 1  | 
+| iot-2/cmd/softreboot/fmt/json           | Reset device                                     |  {}      | 
+| iot-2/cmd/deepsleep/fmt/json            | Activate deepsleep for 30 seconds                |  {}      | 
+  
+Example MQTT control & monitoring application is available at https://tequ.dy.fi/#!/6 & https://tequ.dy.fi/red
+
 ## Development
 
 ### 1. Clone this repository
@@ -123,21 +139,3 @@ https://docs.pycom.io/updatefirmware/
 ### 9. Upload project to Wipy and test its working
    
 ### 10. Start developing!
-  
-  
-## MQTT commands and topics
-
-Unit regularly checks following MQTT topics for incoming commands.
-  
-| TOPIC / COMMAND                         | Purpose                                          | Example payload   | 
-| -------------                           |:-------------:                                   | :-------------:   | 
-| iot-2/cmd/configure/fmt/json            | Change one or multiple config value              |  {"setpoint":25, "hysteresis":1} | 
-| iot-2/cmd/relay_control/fmt/json        | Set                                              |  0 or 1  | 
-| iot-2/cmd/send_config/fmt/json          | Request current config from unit                 |  {}      | 
-| iot-2/cmd/default_config/fmt/json       | Reverts back to default config                   |  {}      | 
-| iot-2/cmd/control_mode/fmt/json         | Change control mode                              |  0 or 1  | 
-| iot-2/cmd/softreboot/fmt/json           | Reset device                                     |  {}      | 
-| iot-2/cmd/deepsleep/fmt/json            | Activate deepsleep for 30 seconds                |  {}      | 
-  
-Example MQTT control & monitoring application is available at https://tequ.dy.fi/#!/6 & https://tequ.dy.fi/red
-  
