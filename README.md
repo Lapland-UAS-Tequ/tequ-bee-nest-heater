@@ -1,4 +1,23 @@
 # tequ-bee-nest-heater
+
+Add Description here
+
+
+## Hardware and connections
+
+| Hardware         | Model         | Link |
+| -------------    |:-------------:| :-------------:| 
+| Board               | WiPy 3.0      | |
+| Power         | 12 VDC 2A     | |
+| Heater        | 12 V 10 W     | |
+| DC/DC         | 12 V to 5 VDC | |
+| Heater control| 2.33.0        | |
+| Temperature sensor |  |  |
+| Overheat protection | sensor |  |  |
+
+
+
+
  
 ## Development
 
