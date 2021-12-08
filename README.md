@@ -37,10 +37,10 @@ Unit regularly checks following MQTT topics for incoming commands.
 | TOPIC / COMMAND                         | Purpose                                          | Example payload   | 
 | -------------                           |:-------------:                                   | :-------------:   | 
 | iot-2/cmd/configure/fmt/json            | Change one or multiple config value              |  {"setpoint":25, "hysteresis":1} | 
-| iot-2/cmd/relay_control/fmt/json        | Set                                              |  0 or 1  | 
+| iot-2/cmd/relay_control/fmt/json        | Set relay ON/OFF (works only if manual mode)     |  0 or 1  | 
 | iot-2/cmd/send_config/fmt/json          | Request current config from unit                 |  {}      | 
 | iot-2/cmd/default_config/fmt/json       | Reverts back to default config                   |  {}      | 
-| iot-2/cmd/control_mode/fmt/json         | Change control mode                              |  0 or 1  | 
+| iot-2/cmd/control_mode/fmt/json         | Change control mode (automatic=0, manual=1)      |  0 or 1  | 
 | iot-2/cmd/softreboot/fmt/json           | Reset device                                     |  {}      | 
 | iot-2/cmd/deepsleep/fmt/json            | Activate deepsleep for 30 seconds                |  {}      | 
   
