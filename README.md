@@ -8,7 +8,7 @@ List of the hardware used in prototype
 | Hardware               | Model         | Placement       | Link          |
 | -------------          |:-------------:| :-------------: | :-------------:| 
 | Board                  | WiPy 3.0      | Control box     | <a href="https://docs.pycom.io/datasheets/development/wipy3/">Link</a>|
-| Power                  | 12 VDC 2A     | External source | |
+| Solar power system     | 12 VDC 20A    | External        | |
 | Heater                 | 12 V 10 W     | Heater unit     | <a href="https://www.partco.fi/fi/mekaniikka/kotelointi/kotelotarvikkeet/23244-lk12v-12w.html">Link</a>|
 | DC/DC 4.5 -24 => 5 VDC | MEZD71202A-G  | Control box     | <a href="https://www.mouser.fi/datasheet/2/277/mEZD71202A-1384003.pdf">Data sheet</a>|
 | Heater control         | COM-12959     | Control box     | <a href="https://www.sparkfun.com/products/12959">Link</a>|
