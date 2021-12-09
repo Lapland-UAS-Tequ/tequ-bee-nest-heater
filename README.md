@@ -13,7 +13,10 @@ List of the hardware used in prototype
 | DC/DC 4.5 -24 => 5 VDC | MEZD71202A-G  | <a href="https://www.mouser.fi/datasheet/2/277/mEZD71202A-1384003.pdf">Data sheet</a>|
 | Heater control         | COM-12959     | <a href="https://www.sparkfun.com/products/12959">Link</a>|
 | Temperature sensor     | DS18B20       | <a href="https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf">Data sheet</a>|
-| Overheat protection    | 80-OHD5R-40B  | <a href="https://content.kemet.com/datasheets/KEM_SE0202_OHD.pdf">Data sheet</a>|
+| Thermal guard          | 80-OHD5R-40B  | <a href="https://content.kemet.com/datasheets/KEM_SE0202_OHD.pdf">Data sheet</a>|
+| Power input            | CA 3 GS       | <a href="https://catalog.belden.com/techdata/EN/CA3GS_techdata.pdf">Data sheet</a>|
+| Power output           | CA 3 GD       | <a href="https://catalog.belden.com/techdata/EN/CA3GD_techdata.pdf">Data sheet</a>|
+| Heater input           | CA 6 GD       | <a href="https://catalog.belden.com/techdata/EN/CA6GD_techdata.pdf">Data sheet</a>|
 
 ## Connections 
 Connections of the hardware used in prototype.
@@ -28,8 +31,41 @@ Connections of the hardware used in prototype.
 | 80-OHD5R-40B           | OUTPUT        |  COM-12959     | GATE           |
 | COM-12959              | DRAIN         |  HEATER        | GND            |
 | COM-12959              | SOURCE        |  POWER         | GND            |
-| HEATER                 | 12 VDC        |  POWER         | 12 VDC         |
-| DCDC                   | Vin           |  POWER         | 12 VDC         |
+| HEATER                 | 12 VDC        |  POWER         | 12 VDC         | 
+| DCDC                   | Vin           |  POWER         | 12 VDC         | 
+
+## Connectors pin order
+
+**7-PIN connector CA 6 **
+
+This connector is for connecting heating element to control box.
+
+Use cable with 7 x 0.5 mm2 conductors.
+
+| PIN #                  | PIN                  | PIN                        | 
+| -------------          |:-------------:       |:-------------:             |
+| PIN 1                  | 12 V                 | 12 V for heating           | 
+| PIN 2                  | HEATER GND           | GND thermostat controlled  | 
+| PIN 3                  | DS18B20 5V           | 1-wire bus 5V line         |  
+| PIN 4                  | DS18B20 GND          | 1-wire bus ground          |  
+| PIN 5                  | DS18B20 DATA         | 1-wire bus data line       |  
+| PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  |  
+| PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out |  
+
+**4-PIN connector CA 3 **
+
+This connector is used to deliver external power to system. External power can be sourced for example from 12 VDC solar power system.
+
+Use cable with 4 x 1.5 mm2 or 4 x 2.5 mm2 to allow multiple heating units to be chained.
+
+| PIN #                  | PIN                  | PIN           | 
+| -------------          |:-------------:       |:-------------:|
+| PIN 1                  | 12 V                 | 12 V input    | 
+| PIN 2                  | GND                  | GND           | 
+| PIN 3                  | 12 V                 | 12 V input    |  
+| PIN 4                  | GND                  | GND           |  
+
+
 
 ## Remote control via MQTT commands and topics
 Unit regularly checks following MQTT topics for incoming commands.
