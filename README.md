@@ -36,7 +36,7 @@ Connections of the hardware used in prototype.
 
 ## Connectors pin order
 
-**7-PIN connector CA 6 **
+**7-PIN connector CA 6**
 
 This connector is for connecting heating element to control box.
 
@@ -52,7 +52,7 @@ Use cable with 7 x 0.5 mm2 conductors.
 | PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  |  
 | PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out |  
 
-**4-PIN connector CA 3 **
+**4-PIN connector CA 3**
 
 This connector is used to deliver external power to system. External power can be sourced for example from 12 VDC solar power system.
 
