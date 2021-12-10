@@ -42,15 +42,15 @@ This connector is for connecting heating element to control box.
 
 Use cable with 7 x 0.5 mm2 conductors.
 
-| PIN #                  | PIN                  | PIN                        | 
-| -------------          |:-------------:       |:-------------:             |
-| PIN 1                  | 12 V                 | 12 V for heating           | 
-| PIN 2                  | HEATER GND           | GND thermostat controlled  | 
-| PIN 3                  | DS18B20 5V           | 1-wire bus 5V line         |  
-| PIN 4                  | DS18B20 GND          | 1-wire bus ground          |  
-| PIN 5                  | DS18B20 DATA         | 1-wire bus data line       |  
-| PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  |  
-| PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out |  
+| PIN #                  | PIN                  | PIN                        | COLOR                    | 
+| -------------          |:-------------:       |:-------------:             | :-------------:          |
+| PIN 1                  | 12 V                 | 12 V for heating           | BROWN + ORANGE           | 
+| PIN 2                  | HEATER GND           | GND thermostat controlled  | BLUE/WHITE               |
+| PIN 3                  | DS18B20 5V           | 1-wire bus 5V line         | GREEN                    |   
+| PIN 4                  | DS18B20 GND          | 1-wire bus ground          | BROWN/WHITE              | 
+| PIN 5                  | DS18B20 DATA         | 1-wire bus data line       | BLUE                     | 
+| PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  | ORANGE/WHITE     | 
+| PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out | GREEN/WHITE      | 
 
 **4-PIN connector CA 3**
 
