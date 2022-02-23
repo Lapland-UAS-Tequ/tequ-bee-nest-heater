@@ -30,8 +30,8 @@ Connections of the hardware used in prototype.
 | WiPy 3.0               | P12           |  COM-12959     | GATE           | 
 | 80-OHD5R-40B           | OUTPUT        |  COM-12959     | GATE           | 
 | COM-12959              | DRAIN         |  HEATER        | GND            | 
-| COM-12959              | SOURCE        |  POWER         | GND            |
-| HEATER                 | 12 VDC        |  POWER         | 12 VDC         | 
+| COM-12959              | SOURCE        |  HEATER        | GND            |
+| HEATER                 | 12 VDC        |  HEATER        | 12 VDC         | 
 | DCDC                   | Vin           |  POWER         | 12 VDC         | 
 
 ## Connector and cable pin orders
