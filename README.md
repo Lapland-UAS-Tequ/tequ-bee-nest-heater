@@ -30,8 +30,8 @@ Connections of the hardware used in prototype.
 | WiPy 3.0               | P12           |  COM-12959     | GATE           | 
 | 80-OHD5R-40B           | OUTPUT        |  COM-12959     | GATE           | 
 | COM-12959              | DRAIN         |  HEATER        | GND            | 
-| COM-12959              | SOURCE        |  POWER         | GND            |
-| HEATER                 | 12 VDC        |  POWER         | 12 VDC         | 
+| COM-12959              | SOURCE        |  HEATER        | GND            |
+| HEATER                 | 12 VDC        |  HEATER        | 12 VDC         | 
 | DCDC                   | Vin           |  POWER         | 12 VDC         | 
 
 ## Connector and cable pin orders
@@ -42,15 +42,15 @@ Supercat ethernet cable for outdoor use
 
 This connector is for connecting heating element to control box.
 
-| PIN #                  | PIN                  | PIN                        | COLOR IN CABLE  |
-| -------------          |:-------------:       |:-------------:             | :-------------: |
-| PIN 1                  | 12 V                 | 12 V for heating           | BROWN + ORANGE  | 
-| PIN 2                  | HEATER GND           | GND thermostat controlled  | BLUE/WHITE      |
-| PIN 3                  | DS18B20 5V           | 1-wire bus 5V line         | GREEN           |   
-| PIN 4                  | DS18B20 GND          | 1-wire bus ground          | BROWN/WHITE     | 
-| PIN 5                  | DS18B20 DATA         | 1-wire bus data line       | BLUE            | 
-| PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  | ORANGE/WHITE    | 
-| PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out | GREEN/WHITE     | 
+| PIN #                  | PIN                  | PIN                        | COLOR IN CABLE  | COLOR IN BOX  |
+| -------------          |:-------------:       |:-------------:             | :-------------: | :-------------: |
+| PIN 1                  | 12 V                 | 12 V for heating           | BROWN + ORANGE  | RED  | 
+| PIN 2                  | HEATER GND           | GND thermostat controlled  | BLUE/WHITE      | BLACK     |
+| PIN 3                  | DS18B20 5V           | 1-wire bus 5V line         | GREEN           | GREEN           | 
+| PIN 4                  | DS18B20 GND          | 1-wire bus ground          | BROWN/WHITE     | BLACK     | 
+| PIN 5                  | DS18B20 DATA         | 1-wire bus data line       | BLUE            | BLUE            |
+| PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  | ORANGE/WHITE    | ORANGE   | 
+| PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out | GREEN/WHITE     | YELLOW     | 
 
 **4-PIN connector CA 3**
 
