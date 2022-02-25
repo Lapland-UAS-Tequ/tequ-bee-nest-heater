@@ -28,7 +28,9 @@ config = config.config()
 heartbeat(False)
 uart = UART(0, 115200)
 dupterm(uart)
-log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2021-12-07)...")
+log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2022-02-23mmm,mm,mmm)...")
+
+blinkLED("blue",250,1)
 
 try:
     start = getFromNVRAM("error")
@@ -95,3 +97,5 @@ while getYear() == 1970:
     utime.sleep_ms(1000)
 
 setToNVRAM("error",0)
+
+blinkLED("green",250,1)

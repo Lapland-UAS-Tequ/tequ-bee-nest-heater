@@ -6,6 +6,7 @@ from onewire import DS18X20, OneWire
 from utime import sleep_ms
 from ubinascii import unhexlify, hexlify
 from utility import stddev
+from utility import blinkLED
 
 class tempReading:
 
@@ -32,11 +33,16 @@ class tempReading:
                 log("tempReading: scanBus: Nothing found, trying again...")
                 self.disable1WireBusPower()
                 self.enable1WireBusPower()
+                sleep_ms(750)
+                blinkLED("red",50,3)
+
             else:
                 log("tempReading: scanBus: Scanning 1-wire bus %s and found: %s" % (self.owPin,hexlify(roms[0])))
                 self.sensorRom = roms[0]
                 self.sensorFound = True
                 break
+
+
 
     def enable1WireBusPower(self):
         log("tempReading: enable1WireBusPower: Enabling 1-wire bus power...")
