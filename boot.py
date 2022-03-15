@@ -28,7 +28,7 @@ config = config.config()
 heartbeat(False)
 uart = UART(0, 115200)
 dupterm(uart)
-log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2022-02-23mmm,mm,mmm)...")
+log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2022-02-23)...")
 
 blinkLED("blue",250,1)
 

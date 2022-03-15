@@ -2,7 +2,6 @@ import ujson
 from utility import log
 from sys import print_exception
 
-
 class config:
     settings = {}
 
