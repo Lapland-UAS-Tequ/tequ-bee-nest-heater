@@ -34,11 +34,14 @@ class WLANConnection:
         return mac_string
 
     def connectWlan(self):
-        self.wlan.connect(ssid=self.SSID, auth=(WLAN.WPA2, self.password))
         i = 1
-        times_to_try = 15
+        times_to_try = 5
 
         while 1:
+            log("WLANConnection: Connecting to %s... %d / %d" % (self.SSID, i, times_to_try))
+            self.wlan.connect(ssid=self.SSID, auth=(WLAN.WPA2, self.password))
+            sleep_ms(10000)
+
             if self.wlan.isconnected():
                 log("WLANConnection: Connection...OK")
                 break
@@ -46,6 +49,4 @@ class WLANConnection:
                 log("WLANConnection: Connection...FAILED")
                 break
             else:
-                log("WLANConnection: Connecting to %s... %d / %d" % (self.SSID, i, times_to_try))
-                sleep_ms(2000)
                 i = i +1
