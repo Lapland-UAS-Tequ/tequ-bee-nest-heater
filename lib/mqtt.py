@@ -10,6 +10,10 @@ class MQTTConnection:
     def __init__(self, config, data, relay):
         log("Initializing MQTT Connection...")
         # MQTT settings
+        self.config = config
+        self.data = data
+        self.relay = relay
+
         self.deviceID = config.getConfigValue("mqtt_device_id")
         self.deviceType = config.getConfigValue("mqtt_device_type")
         self.orgID = config.getConfigValue("mqtt_org")
@@ -21,12 +25,24 @@ class MQTTConnection:
         self.user = config.getConfigValue("mqtt_user")
         self.authToken = config.getConfigValue("mqtt_authtoken")
         self.port = config.getConfigValue("mqtt_port")
-        self.clientID = "d" + ":" + self.orgID + ":" + self.deviceType + ":" + self.deviceID
-        self.client = MQTTClient(self.clientID, self.url, user=self.user, password=self.authToken, port=self.port, keepalive=0, timeout=10)
 
-        self.config = config
-        self.data = data
-        self.relay = relay
+        self.clientID = "d" + ":" + self.orgID + ":" + self.deviceType + ":" + self.deviceID
+
+        print(self.deviceID)
+        print(self.deviceType)
+        print(self.orgID)
+        print(self.url)
+        print(self.dataTopic)
+        print(self.errorTopic)
+        print(self.configTopic)
+        print(self.user)
+        print(self.authToken)
+        print(self.port)
+        print(self.clientID)
+
+        self.client = MQTTClient(client_id=self.clientID, server=self.url, user=self.user, password=self.authToken, port=self.port, keepalive=0,ssl=False, ssl_params={}, timeout=30)
+        #client_id, server, port=0, user=None, password=None, keepalive=0,
+        #                 ssl=False, ssl_params={}, timeout=30
         self.connected = False
 
         self.connect()

@@ -9,29 +9,32 @@ class RelayControl:
 
     def __init__(self, controlPin):
         self.PIN_ID = controlPin
-        log("Using PIN %s as relay control pin" % self.PIN_ID)
+        log("RelayControl: Using PIN %s as relay control pin" % self.PIN_ID)
         self.ctrl_pin = Pin(self.PIN_ID, Pin.OUT, value=0, pull=Pin.PULL_DOWN)
-        self.control_mode = 0
+        self.setAutomaticControl()
+        self.setOFF()
+        self.getRelayState()
 
     def setManualControl(self):
-        log("Manual control mode activated..")
+        log("RelayControl: Manual control mode activated..")
         self.control_mode = 1
 
     def setAutomaticControl(self):
-        log("Automatic control mode activated..")
+        log("RelayControl: Automatic control mode activated..")
         self.control_mode = 0
 
     def getControl_mode(self):
         return self.control_mode
 
     def setON(self):
-        log("Relay ON")
+        log("RelayControl: Relay ON")
         self.ctrl_pin.value(1)
 
     def setOFF(self):
-        log("Relay OFF")
+        log("RelayControl: Relay OFF")
         self.ctrl_pin.value(0)
 
     def getRelayState(self):
         relay_state = self.ctrl_pin.value()
+        log("RelayControl: Relay state: %d" % relay_state)
         return relay_state

@@ -1,6 +1,6 @@
 # boot.py -- run on boot-up
 from machine import WDT
-wdt = WDT(timeout=30000)
+wdt = WDT(timeout=90000)
 
 from utility import log
 import config
@@ -14,7 +14,6 @@ from sys import print_exception
 from machine import reset_cause, wake_reason
 from utility import setToNVRAM, getFromNVRAM, getBootCountFromNVRAM, setBootCountToNVRAM
 import machine
-import relayControl
 import mqtt
 import handleException
 import data
@@ -22,15 +21,21 @@ import time
 import utime
 from ruuvitag.scanner import RuuviTagScanner
 from machine import RTC
-import tempReading
+
+#import gc
+#gc.enable()
 
 config = config.config()
 heartbeat(False)
 uart = UART(0, 115200)
 dupterm(uart)
-log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2022-02-23)...")
+log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2022-05-27)...")
 
-blinkLED("blue",250,1)
+log("Set PIN P11 as relay control pin")
+relay_pin = Pin("P11", Pin.IN)
+log("Relay pin state: %d" % relay_pin())
+
+#blinkLED("blue",250,1)
 
 try:
     start = getFromNVRAM("error")
@@ -98,4 +103,4 @@ while getYear() == 1970:
 
 setToNVRAM("error",0)
 
-blinkLED("green",250,1)
+#blinkLED("green",250,1)

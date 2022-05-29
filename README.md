@@ -2,11 +2,11 @@
 
 This is repository of bee nest heater prototype developed in Arctic Beekeeping project. Prototype is developed for Pycom WiPy 3.0 development board and each prototype can control 12 V heating of single bee nest. Heating plate is equipped with 2 x 10 W @12 VDC heating elements, thermal guard and temperature sensor for thermostat control. Each prototype uses WLAN to connect to internet. Prototype connects to Tequ´s Watson IoT Platform via MQTT and sensor data is delivered to cloud in real-time. Each unit is also remote controllable via MQTT connection. It is possible to connect three Ruuvitag sensors to each unit. Ruuvitag data is collected and forwarded to Watson IoT. Collected sensor data can be found and accessed using Datatool, Databrowser or Tequ-AI found from https://dash.tequ.fi.
 
-## Hardware 
+## Hardware
 List of the hardware used in prototype
 
 | Hardware               | Model         | Placement       | Link          |
-| -------------          |:-------------:| :-------------: | :-------------:| 
+| -------------          |:-------------:| :-------------: | :-------------:|
 | Board                  | WiPy 3.0      | Control box     | <a href="https://docs.pycom.io/datasheets/development/wipy3/">Link</a>|
 | Solar power system     | 12 VDC 20A    | External        | |
 | Heater                 | 12 V 10 W     | Heater unit     | <a href="https://www.partco.fi/fi/mekaniikka/kotelointi/kotelotarvikkeet/23244-lk12v-12w.html">Link</a>|
@@ -18,21 +18,21 @@ List of the hardware used in prototype
 | Power output           | CA 3 GD       | Control box     | <a href="https://catalog.belden.com/techdata/EN/CA3GD_techdata.pdf">Data sheet</a>|
 | Heater input           | CA 6 GD       | Control box     | <a href="https://catalog.belden.com/techdata/EN/CA6GD_techdata.pdf">Data sheet</a>|
 
-## Connections 
+## Connections
 Connections of the hardware used in prototype.
-| Device                 | PIN           | Device         | PIN            | 
-| -------------          |:-------------:| :-------------:| :-------------:| 
-| WiPy 3.0               | Vin           |  DC/DC         | Vout           | 
-| WiPy 3.0               | GND           |  POWER         | GND            | 
+| Device                 | PIN           | Device         | PIN            |
+| -------------          |:-------------:| :-------------:| :-------------:|
+| WiPy 3.0               | Vin           |  DC/DC         | Vout           |
+| WiPy 3.0               | GND           |  POWER         | GND            |
 | WiPy 3.0               | P9            |  DS18B20       | DATA           |
-| WiPy 3.0               | P10           |  DS18B20       | 5V             | 
-| WiPy 3.0               | P11           |  80-OHD5R-40B  | INPUT          | 
-| WiPy 3.0               | P12           |  COM-12959     | GATE           | 
-| 80-OHD5R-40B           | OUTPUT        |  COM-12959     | GATE           | 
-| COM-12959              | DRAIN         |  HEATER        | GND            | 
+| WiPy 3.0               | P10           |  DS18B20       | 5V             |
+| WiPy 3.0               | P11           |  80-OHD5R-40B  | INPUT          |
+| WiPy 3.0               | P12           |  COM-12959     | GATE           |
+| 80-OHD5R-40B           | OUTPUT        |  COM-12959     | GATE           |
+| COM-12959              | DRAIN         |  HEATER        | GND            |
 | COM-12959              | SOURCE        |  HEATER        | GND            |
-| HEATER                 | 12 VDC        |  HEATER        | 12 VDC         | 
-| DCDC                   | Vin           |  POWER         | 12 VDC         | 
+| HEATER                 | 12 VDC        |  HEATER        | 12 VDC         |
+| DCDC                   | Vin           |  POWER         | 12 VDC         |
 
 ## Connector and cable pin orders
 
@@ -44,13 +44,13 @@ This connector is for connecting heating element to control box.
 
 | PIN #                  | PIN                  | PIN                        | COLOR IN CABLE  | COLOR IN BOX  |
 | -------------          |:-------------:       |:-------------:             | :-------------: | :-------------: |
-| PIN 1                  | 12 V                 | 12 V for heating           | BROWN + ORANGE  | RED  | 
+| PIN 1                  | 12 V                 | 12 V for heating           | BROWN + ORANGE  | RED  |
 | PIN 2                  | HEATER GND           | GND thermostat controlled  | BLUE/WHITE      | BLACK     |
-| PIN 3                  | DS18B20 5V           | 1-wire bus 5V line         | GREEN           | GREEN           | 
-| PIN 4                  | DS18B20 GND          | 1-wire bus ground          | BROWN/WHITE     | BLACK     | 
+| PIN 3                  | DS18B20 5V           | 1-wire bus 5V line         | GREEN           | GREEN           |
+| PIN 4                  | DS18B20 GND          | 1-wire bus ground          | BROWN/WHITE     | BLACK     |
 | PIN 5                  | DS18B20 DATA         | 1-wire bus data line       | BLUE            | BLUE            |
-| PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  | ORANGE/WHITE    | ORANGE   | 
-| PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out | GREEN/WHITE     | YELLOW     | 
+| PÍN 6                  | 80-OHD5R-40B INPUT   | heating control signal in  | ORANGE/WHITE    | ORANGE   |
+| PIN 7                  | 80-OHD5R-40B OUTPUT  | heating control signal out | GREEN/WHITE     | YELLOW     |
 
 **4-PIN connector CA 3**
 
@@ -58,10 +58,10 @@ This connector is used to deliver external power to system. External power can b
 
 Use cable with 4 x 1.5 mm2 or 4 x 2.5 mm2 to allow multiple heating units to be chained.
 
-| PIN #                  | PIN                  | PIN           | 
+| PIN #                  | PIN                  | PIN           |
 | -------------          |:-------------:       |:-------------:|
-| PIN 1                  | 12 V                 | 12 V input    | 
-| PIN 2                  | GND                  | GND           | 
+| PIN 1                  | 12 V                 | 12 V input    |
+| PIN 2                  | GND                  | GND           |
 | PIN 3                  | 12 V                 | 12 V input    |  
 | PIN 4                  | GND                  | GND           |  
 
@@ -69,17 +69,17 @@ Use cable with 4 x 1.5 mm2 or 4 x 2.5 mm2 to allow multiple heating units to be 
 
 ## Remote control via MQTT commands and topics
 Unit regularly checks following MQTT topics for incoming commands.
-  
-| TOPIC / COMMAND                         | Purpose                                          | Example payload   | 
-| -------------                           |:-------------:                                   | :-------------:   | 
-| iot-2/cmd/configure/fmt/json            | Change one or multiple config value              |  {"setpoint":25, "hysteresis":1} | 
-| iot-2/cmd/relay_control/fmt/json        | Set relay ON/OFF (works only if manual mode)     |  0 or 1  | 
-| iot-2/cmd/send_config/fmt/json          | Request current config from unit                 |  {}      | 
-| iot-2/cmd/default_config/fmt/json       | Reverts back to default config                   |  {}      | 
-| iot-2/cmd/control_mode/fmt/json         | Change control mode (automatic=0, manual=1)      |  0 or 1  | 
-| iot-2/cmd/softreboot/fmt/json           | Reset device                                     |  {}      | 
-| iot-2/cmd/deepsleep/fmt/json            | Activate deepsleep for 30 seconds                |  {}      | 
-  
+
+| TOPIC / COMMAND                         | Purpose                                          | Example payload   |
+| -------------                           |:-------------:                                   | :-------------:   |
+| iot-2/cmd/configure/fmt/json            | Change one or multiple config value              |  {"setpoint":25, "hysteresis":1} |
+| iot-2/cmd/relay_control/fmt/json        | Set relay ON/OFF (works only if manual mode)     |  0 or 1  |
+| iot-2/cmd/send_config/fmt/json          | Request current config from unit                 |  {}      |
+| iot-2/cmd/default_config/fmt/json       | Reverts back to default config                   |  {}      |
+| iot-2/cmd/control_mode/fmt/json         | Change control mode (automatic=0, manual=1)      |  0 or 1  |
+| iot-2/cmd/softreboot/fmt/json           | Reset device                                     |  {}      |
+| iot-2/cmd/deepsleep/fmt/json            | Activate deepsleep for 30 seconds                |  {}      |
+
 Example MQTT control & monitoring application is available at https://tequ.dy.fi/#!/6 & https://tequ.dy.fi/red
 
 ## Development
@@ -120,8 +120,8 @@ git clone https://github.com/Lapland-UAS-Tequ/tequ-bee-nest-heater.git
 - ruuvitags = list of ruuvitag sensors which data should be collected and forwarded to Watson IoT (max 3)
 - setpoint = Target temperature for thermostat control
 - hysteresis = allowed fluctuation of temperature during control
-- hysteresis_low_offset = offset for more precise control of lower level hysteresis 
-- hysteresis_high_offset = offset for more precise control of high level hysteresis 
+- hysteresis_low_offset = offset for more precise control of lower level hysteresis
+- hysteresis_high_offset = offset for more precise control of high level hysteresis
 - ruuvitag_timeout = seconds how long to listen incoming ruuvitag broadcasts
 - control_parameter_key = t (do not change, for future purposes)
 - control_parameter_group = 1 (do not change, for future purposes)
@@ -130,7 +130,7 @@ git clone https://github.com/Lapland-UAS-Tequ/tequ-bee-nest-heater.git
 - mqtt_port = MQTT server port
 - mqtt_url = MQTT server url
 - mqtt_device_id = automatically detected from Pycom board, must match registered device in MQTT server
-- mqtt_device_type = registered device type 
+- mqtt_device_type = registered device type
 - mqtt_data_topic = topic to send data events (sensor data)
 - mqtt_error_topic = topic to send error messages
 - mqtt_config_topic = topic to send device config
@@ -141,10 +141,10 @@ https://docs.pycom.io/gettingstarted/software/atom/
 
 ### 4 Open folder cloned from Git in development environment
 
-### 5. Find out WiPy board unique ID 
+### 5. Find out WiPy board unique ID
 
 - Connect WiPy with USB-cable
-- Open terminal 
+- Open terminal
 - Run following code
 
 ```
@@ -163,13 +163,13 @@ Device ID = use unique id
 mqtt_authtoken = generate randomly
 
 Add generated token to config.json <MQTT AUTH TOKEN>
- 
+
 ### 7. Update WiPy firmware
 
 https://docs.pycom.io/updatefirmware/
 
 ### 8. Build connections
-  
+
 ### 9. Upload project to Wipy and test its working
-   
+
 ### 10. Start developing!

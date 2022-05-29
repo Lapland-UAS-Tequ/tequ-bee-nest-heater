@@ -1,16 +1,27 @@
-blinkLED("white",250,1)
-relay = relayControl.RelayControl("P11")
-tr = tempReading.tempReading(pwrPin="P10",owPin="P9")
-data = data.DataStruct()
-mqtt = mqtt.MQTTConnection(config, data, relay)
-exp = handleException.HandleException(mqtt)
+try:
+    #blinkLED("white",250,1)
+    import relayControl
+    import tempReading
+    relay = relayControl.RelayControl("P11")
+    tr = tempReading.tempReading(pwrPin="P10",owPin="P9")
+    data = data.DataStruct()
 
-count = 1
-t_sensor_failure = 0
-temperature = -99
-avg_t = -99
-publish_data = False
-control_signal_ok = Pin("P12", Pin.IN)
+    mqtt = mqtt.MQTTConnection(config, data, relay)
+    exp = handleException.HandleException(mqtt)
+
+    count = 1
+    t_sensor_failure = 0
+    temperature = 999
+    avg_t = 999
+    publish_data = False
+    control_signal_ok = Pin("P12", Pin.IN)
+
+except Exception as e:
+    print_exception(e)
+    log("Set PIN P11 as relay control pin")
+    relay_pin = Pin("P11", Pin.IN)
+    log("Relay pin state: %d" % relay_pin())
+
 
 # Main program loop, this is repeated while program is running
 while 1:
@@ -18,12 +29,6 @@ while 1:
         # Read initial values
         start = time.ticks_ms()
         cpu_t = ((machine.temperature() - 32) / 1.8)
-
-        try:
-            mqtt.checkNewMessages()
-            mqtt.pingServer()
-        except Exception as e:
-            exp.handleException(e, "Checking MQTT messages failed...", True, True, True, False)
 
         # Read temperature sensor
         try:
@@ -89,6 +94,13 @@ while 1:
 
         except Exception as e:
             exp.handleException(e, "Temperature control failed...", True, True, True, True)
+
+        try:
+            mqtt.checkNewMessages()
+            mqtt.pingServer()
+        except Exception as e:
+            exp.handleException(e, "Checking MQTT messages failed...", True, True, True, False)
+
 
         # Do @start
         if publish_data:
@@ -159,6 +171,7 @@ while 1:
             log("Main: Executing program took %.3f seconds. Sleeping %.3f seconds...\n\n" % (delta / 1000, timeToSleep))
             count = count + 1
             time.sleep(timeToSleep)
-        except:
+        except Exception as e:
+            print_exception(e)
             log("Main: Error in finally... deepsleep 10 seconds to reset...")
             machine.deepsleep(10000)
