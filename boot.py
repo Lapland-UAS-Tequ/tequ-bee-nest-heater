@@ -76,6 +76,7 @@ try:
     elif wake_reason[0] == machine.ULP_WAKE:
         log("Boot: Woke up by ULP (capacitive touch)")
 except Exception as e:
+    start = 0
     print_exception(e)
 
 
