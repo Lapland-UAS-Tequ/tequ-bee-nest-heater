@@ -7,7 +7,6 @@
 # see the Pycom Licence v1.0 document supplied with this file, or
 # available at https://www.pycom.io/opensource/licensing
 #
-
 """
 OneWire library for MicroPython
 """

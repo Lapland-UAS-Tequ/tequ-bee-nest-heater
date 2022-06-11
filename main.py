@@ -1,27 +1,13 @@
 try:
     #blinkLED("white",250,1)
-    import relayControl
     import tempReading
-    relay = relayControl.RelayControl("P11")
     tr = tempReading.tempReading(pwrPin="P10",owPin="P9")
     data = data.DataStruct()
-
     mqtt = mqtt.MQTTConnection(config, data, relay)
     exp = handleException.HandleException(mqtt)
-
-    count = 1
-    t_sensor_failure = 0
-    temperature = 999
-    avg_t = 999
-    publish_data = False
-    control_signal_ok = Pin("P12", Pin.IN)
-
 except Exception as e:
     print_exception(e)
-    log("Set PIN P11 as relay control pin")
-    relay_pin = Pin("P11", Pin.IN)
-    log("Relay pin state: %d" % relay_pin())
-
+    relay.setOFF()
 
 # Main program loop, this is repeated while program is running
 while 1:
@@ -29,6 +15,15 @@ while 1:
         # Read initial values
         start = time.ticks_ms()
         cpu_t = ((machine.temperature() - 32) / 1.8)
+
+        if wlan.isWlanConnected():
+            log("WLAN connection OK...")
+        else:
+            log("Main: WLAN connection is not OK... Connecting WLAN..")
+            setLED("blue")
+            log("Main: Set relay OFF...")
+            relay.setOFF()
+            wlan.connectWlan(30)
 
         # Read temperature sensor
         try:
@@ -76,6 +71,8 @@ while 1:
                         setLED("green")
                         relay.setOFF()
                         publish_data = True
+                    else:
+                        setLED("green")
 
                 elif CTRL_T <= lowLimit:
                     if current_relay_state == 0:

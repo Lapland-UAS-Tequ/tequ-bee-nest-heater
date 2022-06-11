@@ -1,6 +1,19 @@
 # boot.py -- run on boot-up
 from machine import WDT
 wdt = WDT(timeout=90000)
+import relayControl
+from machine import UART, Pin
+#relay = relayControl.RelayControl("P11")
+relay = relayControl.RelayControl("P11")
+relay.setOFF()
+control_signal_ok = Pin("P12", Pin.IN)
+count = 1
+t_sensor_failure = 0
+temperature = 999
+avg_t = 999
+publish_data = False
+start = 0
+sync_loop = 0
 
 from utility import log
 import config
@@ -8,7 +21,7 @@ from utime import ticks_ms, ticks_diff, sleep_ms
 from utility import log, releasePinHold, setPinHold, changePin, blinkLED, setPin, setLED, getYear
 from pycom import heartbeat
 from os import dupterm
-from machine import UART, Pin
+
 import WLANConnection
 from sys import print_exception
 from machine import reset_cause, wake_reason
@@ -29,13 +42,9 @@ config = config.config()
 heartbeat(False)
 uart = UART(0, 115200)
 dupterm(uart)
-log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2022-05-27)...")
+log("Boot: Starting Bee-IoT-Heater-App-v1.0 (2022-06-10)...")
 
-log("Set PIN P11 as relay control pin")
-relay_pin = Pin("P11", Pin.IN)
-log("Relay pin state: %d" % relay_pin())
-
-#blinkLED("blue",250,1)
+blinkLED("blue",250,1)
 
 try:
     start = getFromNVRAM("error")
@@ -76,7 +85,6 @@ try:
     elif wake_reason[0] == machine.ULP_WAKE:
         log("Boot: Woke up by ULP (capacitive touch)")
 except Exception as e:
-    start = 0
     print_exception(e)
 
 
@@ -94,13 +102,17 @@ if start >= 2:
 wlan = WLANConnection.WLANConnection(config.getSSID(), config.getPassword())
 log("Boot: Setting MAC address")
 config.updateConfigValue("mqtt_device_id",wlan.getMACFlatten())
+wlan.connectWlan(30)
+
+
 log("Boot: Configuring RTC...")
 rtc = machine.RTC()
 
-while getYear() == 1970:
+while getYear() == 1970 and sync_loop < 5:
     log("Boot: Syncing RTC...")
     rtc.ntp_sync("pool.ntp.org")
     utime.sleep_ms(1000)
+    sync_loop = sync_loop + 1
 
 setToNVRAM("error",0)
 
