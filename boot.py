@@ -1,6 +1,6 @@
 # boot.py -- run on boot-up
 from machine import WDT
-wdt = WDT(timeout=90000)
+wdt = WDT(timeout=75000)
 import relayControl
 from machine import UART, Pin
 #relay = relayControl.RelayControl("P11")

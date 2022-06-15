@@ -32,8 +32,8 @@ class config:
             log("Updating config file... FAILED..")
             print_exception(e)
             self.createDefaultConfig()
-        finally:
-            log(self.settings)
+        else:
+            log("Config updated...")
 
     def createDefaultConfig(self):
         # original values

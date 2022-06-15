@@ -75,16 +75,25 @@ class MQTTConnection:
         self.client.ping()
 
     def publishDataEvent(self, JSONMessage):
-        log("Publishing data message %s to topic: %s" % (JSONMessage, self.dataTopic))
+        #log("Publishing data message %s to topic: %s" % (JSONMessage, self.dataTopic))
+        log("Publishing data message to topic: %s" % self.dataTopic)
         self.client.publish(topic=self.dataTopic, msg=JSONMessage, qos=1)
 
     def publishErrorEvent(self, JSONMessage):
-        log("Publishing error message %s to topic: %s" % (JSONMessage, self.errorTopic))
+        #log("Publishing error message %s to topic: %s" % (JSONMessage, self.errorTopic))
+        log("Publishing error message to topic: %s" % self.errorTopic)
         self.client.publish(topic=self.errorTopic, msg=JSONMessage, qos=1)
 
     def publishConfigEvent(self, JSONMessage):
-        log("Publishing config message %s to topic: %s" % (JSONMessage, self.configTopic))
+        #log("Publishing config message %s to topic: %s" % (JSONMessage, self.configTopic))
+        log("Publishing config message to topic: %s" % self.configTopic)
         self.client.publish(topic=self.configTopic, msg=JSONMessage, qos=1)
+
+    def publishRelayEvent(self):
+        #log("Publishing config message %s to topic: %s" % (JSONMessage, self.configTopic))
+        JSONMessage = ujson.dumps({"relay":1})
+        log("Publishing event message to topic: %s" % "iot-2/evt/relay/fmt/json")
+        self.client.publish(topic="iot-2/evt/relay/fmt/json", msg=JSONMessage, qos=1)
 
     def process_MQTT_command(self, topic, msg):
         message_value = msg.decode("utf-8")

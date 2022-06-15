@@ -12,7 +12,8 @@
   "mqtt_user":"use-token-auth",
   "mqtt_authtoken":"CcP)ysb8lqIrk0-U+H",
   "mqtt_port":1883,
-  "mqtt_url":"i5u4t3.messaging.internetofthings.mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+  "mqtt_url":"i5u4t3.messaging.internetofthings.ibmcloud.com",
+  "mqtt_org":"i5u4t3",
   "mqtt_device_id":"MAC",
   "mqtt_device_type":"bee-iot",
   "mqtt_data_topic":"iot-2/evt/data/fmt/json",

@@ -71,14 +71,13 @@ while 1:
                         setLED("green")
                         relay.setOFF()
                         publish_data = True
-                    else:
-                        setLED("green")
 
                 elif CTRL_T <= lowLimit:
                     if current_relay_state == 0:
                         log("Main: Temperature is too low => Switch ON heating.")
                         setLED("red")
-                        relay.setON()
+                        #relay.setON()
+                        mqtt.publishRelayEvent()
                         publish_data = True
 
             data.updatePayloadValue("1", "sp", config.getSP())
@@ -88,11 +87,12 @@ while 1:
             data.updatePayloadValue("1", "t_fail", t_sensor_failure)
             data.updatePayloadValue("1", "cpu_t", cpu_t)
             data.updatePayloadValue("1", "ctrl_ok", control_signal_ok())
-
+            log("Main: Datavalues updated...")
         except Exception as e:
             exp.handleException(e, "Temperature control failed...", True, True, True, True)
 
         try:
+            log("Main: Checking MQTT...")
             mqtt.checkNewMessages()
             mqtt.pingServer()
         except Exception as e:
