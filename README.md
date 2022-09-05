@@ -6,10 +6,11 @@ https://www.lapinamk.fi/fi/Yrityksille-ja-yhteisoille/Lapin-AMKin-hankkeet?RepoP
 
 ---
 
-
 # tequ-bee-nest-heater
 
-This is repository of bee nest heater prototype developed in Arctic Beekeeping project. Prototype is developed for Pycom WiPy 3.0 development board and each prototype can control 12 V heating of single bee nest. Heating plate is equipped with 2 x 10 W @12 VDC heating elements, thermal guard and temperature sensor for thermostat control. Each prototype uses WLAN to connect to internet. Prototype connects to Tequ´s Watson IoT Platform via MQTT and sensor data is delivered to cloud in real-time. Each unit is also remote controllable via MQTT connection. It is possible to connect three Ruuvitag sensors to each unit. Ruuvitag data is collected and forwarded to Watson IoT. Collected sensor data can be found and accessed using Datatool, Databrowser or Tequ-AI found from https://dash.tequ.fi.
+This is repository of Bee Nest heater device prototype. Prototype is developed for Pycom WiPy 3.0 development board and each prototype can control 12 V heating of single bee nest. Heating plate is equipped with 2 x 10 W @12 VDC heating elements, thermal guard and temperature sensor for thermostat control. Each prototype uses WLAN to connect to internet. Prototype connects to Tequ´s Watson IoT Platform via MQTT and sensor data is delivered to cloud in real-time. Each unit is also remote controllable via MQTT connection. It is possible to connect three Ruuvitag sensors to each unit. Ruuvitag data is collected and forwarded to Watson IoT. 
+
+Collected sensor data can be found and accessed using Bee-Apps, Datatool found from https://dash.tequ.fi.
 
 ## Hardware
 List of the hardware used in prototype
